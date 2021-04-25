@@ -5,15 +5,22 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ClientModule } from './client/client.module';
 import * as ormconfig from './ormconfig';
+import { Client } from './client/entities/client.entity';
 
-export function DatabaseOrmModule(): DynamicModule {
-  return TypeOrmModule.forRoot(ormconfig);
-}
 
 @Module({
+    // imports: [TypeOrmModule.forRoot(ormconfig), ClientModule],
   imports: [
-    ClientModule,
-    TypeOrmModule.forRoot(ormconfig)
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      username: 'admin',
+      password: 'admin',
+      database: 'nestjs',
+      entities: [Client],
+      synchronize: true,
+    }),
+    ClientModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,22 +1,13 @@
-import {ConnectionOptions} from 'typeorm';
-
-// You can load you .env file here synchronously using dotenv package (not installed here),
-// import * as dotenv from 'dotenv';
-// import * as fs from 'fs';
-// const environment = process.env.NODE_ENV || 'development';
-// const data: any = dotenv.parse(fs.readFileSync(`${environment}.env`));
-// You can also make a singleton service that load and expose the .env file content.
-// ...
-
+import { ConnectionOptions } from 'typeorm';
 
 // Check typeORM documentation for more information.
 const config: ConnectionOptions = {
   type: 'postgres',
   host: 'localhost',
   port: 5432,
-  username: 'postgres',
-  password: 'pwd',
-  database: 'migrationexample',
+  username: 'admin',
+  password: 'admin',
+  database: 'nestjs',
   entities: [__dirname + '/**/*.entity{.ts,.js}'],
 
   // We are using migrations, synchronize should be set to false.
