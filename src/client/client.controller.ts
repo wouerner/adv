@@ -9,7 +9,6 @@ export class ClientController {
 
   @Post()
   create(@Body() createClientDto: CreateClientDto) {
-      console.log(createClientDto);
     return this.clientService.create(createClientDto);
   }
 
